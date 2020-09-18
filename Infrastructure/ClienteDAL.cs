@@ -1,6 +1,7 @@
 ﻿using Domain;
 using Infrastructure.AcessoDados;
 using Microsoft.Extensions.Configuration;
+using System.Collections.Generic;
 
 namespace Infrastructure
 {
@@ -28,6 +29,15 @@ namespace Infrastructure
                 base.Dispose();
             }
            
+        }
+
+
+        public override List<TEntity> Listar(int? Id)
+        {
+            CreateCommand(System.Data.CommandType.StoredProcedure, "SP_CLIENTE_S");
+            AddInParamInt32("@ID", Id);
+
+            return base.Listar(Id);
         }
     }
 }

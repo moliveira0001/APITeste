@@ -10,6 +10,7 @@ namespace Domain
         public string Mensagem { get; set; }
         public bool BadRequest { get; set; }
         public DateTime DataCricacao { get; set; }
+        public int? Id { get; set; }
 
         public BaseEntity()
         {

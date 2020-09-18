@@ -2,7 +2,7 @@
 {
     public class Cliente : BaseEntity
     {
-        public decimal Id { get; set; }
+       
 
 
         public string Nome { get; set; }

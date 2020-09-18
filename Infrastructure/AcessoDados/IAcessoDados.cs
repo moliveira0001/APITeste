@@ -13,5 +13,7 @@ namespace Infrastructure.AcessoDados
 
         public TEntity Atualizar(TEntity objEntity_);
 
+        public List<TEntity> Listar(int? Id);
+
     }
 }

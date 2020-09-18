@@ -48,6 +48,23 @@ namespace Infrastructure.AcessoDados
 
             return this.Select(objEntity_);
         }
+
+        public virtual List<TEntity> Listar(int ? Id)
+        {
+
+            TEntity objEntity_ = null;
+
+            objEntity_ = Activator.CreateInstance<TEntity>();
+
+            _conexao = new SqlConnection(stringDeConexao.Value);
+            _conexao.Open();
+            this._dbCommand.Connection = _conexao;
+
+            return this.Select(objEntity_);
+        }
+
+
+
         public virtual TEntity Criar(TEntity objEntity_)
         {
 

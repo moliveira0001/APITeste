@@ -1,9 +1,7 @@
 ﻿using Domain;
 using Infrastructure.AcessoDados;
 using Microsoft.Extensions.Configuration;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Infrastructure
 {
@@ -17,9 +15,17 @@ namespace Infrastructure
         {
             CreateCommand(System.Data.CommandType.StoredProcedure, "SP_FILME_I");
             AddInParamString("@NOME", objEntity_.NomeFilme);
-       
+
 
             return base.Criar(objEntity_);
+        }
+
+        public override List<TEntity> Listar(int? Id)
+        {
+            CreateCommand(System.Data.CommandType.StoredProcedure, "SP_FILME_S");
+            AddInParamInt32("@ID", Id);
+
+            return base.Listar(Id);
         }
     }
 }
